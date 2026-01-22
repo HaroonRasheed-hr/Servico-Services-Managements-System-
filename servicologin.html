@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Servico Login</title>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+   <form id="servico-login-form">
+      <h2>Admin Login</h2>
+      <input type="text" id="username" name="username" autocomplete="username" required>
+      <input type="password" id="password" name="password" autocomplete="current-password" required>
+      <button type="submit">Login</button>
+   </form>
+
+   <!-- Footer -->
+   <footer class="footer" id="contact1">
+      <div class="footer-content">
+         <div class="footer-section">
+            <h4>SERVICO</h4>
+            <p>Redefining service management</p>
+            <div class="social-links">
+               <a href="https://www.facebook.com/share/1865eWcZWQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+               <a href="#"><i class="fab fa-x"></i></a>
+               <a href="https://www.instagram.com/haroonrasheed_hr" target="_blank"><i class="fab fa-instagram"></i></a>
+               <a href="https://www.linkedin.com/in/haroon-rasheed-91aba1275" target="_blank"><i
+                     class="fab fa-linkedin"></i></a>
+            </div>
+         </div>
+
+         <!-- Quick Links - Aligned to the Right -->
+         <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#privacy">Privacy Policy</a>
+         </div>
+      </div>
+      <div class="footer-bottom">
+         <p>&copy; 2024 SERVICO. All rights reserved.</p>
+      </div>
+   </footer>
+   <!-- Place this just before the closing body tag -->
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         const loginForm = document.getElementById("servico-login-form");
+
+         if (loginForm) {
+            loginForm.addEventListener("submit", async function (e) {
+               e.preventDefault();
+
+               const username = document.getElementById("username").value;
+               const password = document.getElementById("password").value;
+
+               try {
+                  const response = await fetch("http://localhost:8080/api/admin/login", {
+                     method: "POST",
+                     headers: {
+                        "Content-Type": "application/json",
+                     },
+                     body: JSON.stringify({ username, password }),
+                  });
+
+                  if (response.ok) {
+                     window.location.href = "servicodashboard.html";
+                  } else {
+                     const error = await response.text();
+                     alert("Login failed: " + error);
+                  }
+               } catch (err) {
+                  console.error("Error during admin login:", err);
+                  alert("Error connecting to server.");
+               }
+            });
+         }
+      });
+
+   </script>
+</body>
+
+</html>
