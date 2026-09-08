@@ -1,0 +1,656 @@
+:root {
+   --primary: #4a90e2;
+   --secondary: #6c5ce7;
+   --accent: #ff7675;
+   --dark: #2d3436;
+   --light: #f5f6fa;
+   --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   --font: 'Segoe UI', system-ui;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   transition: all 0.3s ease;
+}
+
+body {
+   font-family: var(--font);
+   background: var(--light);
+   color: var(--dark);
+   line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+   background: rgba(255, 255, 255, 0.95);
+   backdrop-filter: blur(10px);
+   position: fixed;
+   width: 100%;
+   top: 0;
+   z-index: 1000;
+   box-shadow: var(--shadow);
+}
+
+.nav-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 1rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.logo {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   color: var(--primary);
+   text-decoration: none;
+}
+
+.nav-links {
+   display: flex;
+   gap: 2rem;
+   align-items: center;
+}
+
+.nav-links a {
+   text-decoration: none;
+   color: var(--dark);
+   padding: 0.5rem 1rem;
+   border-radius: 0.5rem;
+}
+
+.nav-links a:hover {
+   background: var(--primary);
+   color: white;
+}
+
+/* Hero Section */
+.hero {
+   padding: 8rem 2rem 4rem;
+   text-align: center;
+   background: var(--gradient);
+   color: white;
+}
+
+.search-container {
+   max-width: 600px;
+   margin: 2rem auto;
+   display: flex;
+   background: rgba(255, 255, 255, 0.2);
+   border-radius: 0.5rem;
+   overflow: hidden;
+}
+
+#searchInput {
+   flex: 1;
+   padding: 1rem;
+   border: none;
+   background: transparent;
+   color: white;
+   font-size: 1rem;
+}
+
+#searchInput::placeholder {
+   color: rgba(255, 255, 255, 0.8);
+}
+
+.search-btn {
+   padding: 1rem;
+   border: none;
+   background: var(--accent);
+   color: white;
+   cursor: pointer;
+}
+
+/* Auth Modal */
+.auth-modal {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   backdrop-filter: blur(5px);
+   z-index: 1001;
+}
+
+.modal-content {
+   background: var(--light);
+   color: var(--dark);
+   padding: 2rem;
+   border-radius: 1rem;
+   position: relative;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   max-width: 500px;
+   text-align: center;
+}
+
+.close-modal {
+   position: absolute;
+   top: 1rem;
+   right: 1.5rem;
+   font-size: 1.5rem;
+   cursor: pointer;
+}
+
+.modal-auth-buttons {
+   display: grid;
+   gap: 1rem;
+   margin: 2rem 0;
+}
+
+/* About Section */
+.about {
+   padding: 4rem 2rem;
+   background: rgba(255, 255, 255, 0.9);
+}
+
+.about-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.about h3 {
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+   color: var(--primary);
+}
+
+.about p {
+   font-size: 1.1rem;
+   line-height: 1.8;
+   max-width: 800px;
+   margin: 0 auto 3rem;
+   color: var(--dark);
+}
+
+.stats {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 2rem;
+   margin-top: 3rem;
+}
+
+.stat-item {
+   background: var(--light);
+   padding: 2rem;
+   border-radius: 1rem;
+   box-shadow: var(--shadow);
+}
+
+.stat-item h4 {
+   font-size: 2.5rem;
+   color: var(--primary);
+   margin-bottom: 0.5rem;
+}
+
+/* Services Section */
+.services {
+   padding: 4rem 2rem;
+   text-align: center;
+}
+
+.services h2 {
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+   color: var(--primary);
+}
+
+.services-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+   margin-top: 2rem;
+}
+
+.service-card {
+   background: white;
+   padding: 1.5rem;
+   border-radius: 1rem;
+   box-shadow: var(--shadow);
+   transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+   transform: translateY(-5px);
+}
+
+/* Reviews Section */
+.reviews {
+   padding: 4rem 2rem;
+   background: var(--light);
+}
+
+.reviews h3 {
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 3rem;
+   color: var(--primary);
+}
+
+.reviews-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.review-card {
+   background: white;
+   padding: 2rem;
+   border-radius: 1rem;
+   box-shadow: var(--shadow);
+   transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+   transform: translateY(-5px);
+}
+
+.rating {
+   color: #ffd700;
+   margin-bottom: 1rem;
+}
+
+.author {
+   color: var(--primary);
+   font-weight: 600;
+   margin-top: 1rem;
+}
+
+/* Footer Section */
+.footer {
+   background: var(--dark);
+   color: white;
+   padding: 4rem 2rem;
+   margin-top: 4rem;
+}
+
+.footer-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 3rem;
+}
+
+.footer-section {
+   margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+   font-size: 1.5rem;
+   margin-bottom: 1.5rem;
+   color: var(--primary);
+}
+
+.footer-section a {
+   color: rgba(255, 255, 255, 0.8);
+   text-decoration: none;
+   display: block;
+   margin-bottom: 0.8rem;
+   transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+   color: white;
+}
+
+.social-links {
+   display: flex;
+   gap: 1.5rem;
+   margin-top: 1.5rem;
+}
+
+.social-links a {
+   font-size: 1.5rem;
+   color: rgba(255, 255, 255, 0.8);
+   transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+   color: var(--primary);
+}
+
+.footer-bottom {
+   text-align: center;
+   margin-top: 3rem;
+   padding-top: 2rem;
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Button Styles */
+.auth-buttons {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   /* Two columns */
+   gap: 1rem;
+   margin-top: 1.5rem;
+}
+
+.auth-buttons .user-signup {
+   order: 1;
+}
+
+.auth-buttons .user-login {
+   order: 2;
+}
+
+.auth-buttons .company-signup {
+   order: 3;
+}
+
+.auth-buttons .company-login {
+   order: 4;
+}
+
+.footer .auth-buttons a {
+   padding: 0.8rem;
+   border-radius: 0.5rem;
+   text-align: center;
+   color: white;
+   text-decoration: none;
+   transition: background 0.3s ease;
+}
+
+/* Specific Button Colors */
+.footer .user-login {
+   background: #4a90e2;
+   /* Blue */
+}
+
+.footer .user-signup {
+   background: #6c5ce7;
+   /* Purple */
+}
+
+.footer .company-login {
+   background: #ff7675;
+   /* Red */
+}
+
+.footer .company-signup {
+   background: #00b894;
+   /* Green */
+}
+
+.footer .auth-buttons a:hover {
+   opacity: 0.9;
+   /* Slightly transparent on hover */
+}
+
+/* Login and Signup Forms */
+form {
+   max-width: 400px;
+   margin: 2rem auto;
+   padding: 2rem;
+   background: var(--light);
+   border-radius: 1rem;
+   box-shadow: var(--shadow);
+}
+
+form h2 {
+   text-align: center;
+   margin-bottom: 1.5rem;
+   color: var(--primary);
+}
+
+form label {
+   display: block;
+   margin-bottom: 0.5rem;
+   color: var(--dark);
+}
+
+form input {
+   width: 100%;
+   padding: 0.8rem;
+   margin-bottom: 1rem;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   border-radius: 0.5rem;
+}
+
+form button {
+   width: 100%;
+   padding: 0.8rem;
+   border: none;
+   border-radius: 0.5rem;
+   background: var(--primary);
+   color: white;
+   cursor: pointer;
+   transition: background 0.3s ease;
+}
+
+form button:hover {
+   background: var(--secondary);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+   --light: var(--dark);
+   --dark: #f5f6fa;
+}
+
+[data-theme="dark"] .header {
+   background: rgba(45, 45, 45, 0.95);
+}
+
+[data-theme="dark"] .modal-content {
+   background: var(--dark);
+   color: var(--light);
+}
+
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .review-card {
+   background: rgba(45, 45, 45, 0.9);
+}
+
+[data-theme="dark"] .about {
+   background: rgba(45, 45, 45, 0.9);
+}
+
+[data-theme="dark"] .about p,
+[data-theme="dark"] .stat-item {
+   color: var(--light);
+}
+
+.theme-toggle {
+   background: var(--primary);
+   color: white;
+   border: none;
+   padding: 0.5rem 1rem;
+   border-radius: 0.5rem;
+   cursor: pointer;
+}
+
+/* userprofilebtn */
+.profile-container {
+   position: relative;
+   display: inline-block;
+}
+
+.profile-btn {
+   background-color: #3498db;
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.profile-menu {
+   display: none;
+   position: absolute;
+   top: 100%;
+   right: 0;
+   background-color: white;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   border-radius: 5px;
+   overflow: hidden;
+   z-index: 1000;
+}
+
+.profile-menu.show {
+   display: block;
+}
+
+.profile-menu a {
+   display: block;
+   padding: 10px 15px;
+   text-decoration: none;
+   color: black;
+   background-color: white;
+}
+
+.profile-menu a:hover {
+   background-color: #f0f0f0;
+}
+
+/* booking auth */
+/* Book Now Button */
+.book-btn {
+   background: var(--gradient);
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 8px;
+   font-size: 1rem;
+   cursor: pointer;
+   box-shadow: var(--shadow);
+   transition: background 0.3s ease;
+}
+
+.book-btn:hover {
+   background: var(--accent);
+   transform: scale(1.05);
+}
+
+/* Booking Modal Styling */
+
+/* Modal Base */
+.modal {
+   display: none;
+   position: fixed;
+   z-index: 999;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.6);
+   justify-content: center;
+   align-items: center;
+}
+
+.modal-content {
+   background-color: #fff;
+   padding: 30px 40px;
+   border-radius: 12px;
+   width: 90%;
+   max-width: 500px;
+   position: relative;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+   text-align: center;
+}
+
+.modal-content input,
+.modal-content select {
+   width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+   font-size: 1rem;
+}
+
+#confirmBookingBtn {
+   margin-top: 20px;
+   background-color: #28a745;
+   color: white;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+   font-size: 1rem;
+   transition: background-color 0.3s ease;
+}
+
+#confirmBookingBtn:hover {
+   background-color: #1e7e34;
+}
+
+#cancelBookingBtn {
+   margin-top: 20px;
+   background-color: #a72828;
+   color: white;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+   font-size: 1rem;
+   transition: background-color 0.3s ease;
+}
+
+#cancelBookingBtn:hover {
+   background-color: #945050;
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: scale(0.9);
+   }
+
+   to {
+      opacity: 1;
+      transform: scale(1);
+   }
+}
+
+@media (max-width: 400px) {
+   .modal-content {
+      padding: 20px;
+   }
+}
+
+
+
+
+
+.action-buttons button {
+   background-color: #0077cc;
+   color: white;
+   border: none;
+   padding: 8px 12px;
+   margin: 3px;
+   border-radius: 6px;
+   cursor: pointer;
+   font-weight: 500;
+}
+
+.action-buttons button:hover {
+   background-color: #005fa3;
+}
+
+.status.approved {
+   color: green;
+   font-weight: bold;
+}
+
+.status.rejected {
+   color: red;
+   font-weight: bold;
+}
+
+.status.pending {
+   color: orange;
+   font-weight: bold;
+}
