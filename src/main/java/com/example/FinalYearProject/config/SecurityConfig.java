@@ -35,7 +35,7 @@ public class SecurityConfig {
                     
 
                     // ✅ Static files
-                    "/styles.css", "/app.js", "/images/**",
+                    "/styles.css", "/responsive.css", "/app.js", "/responsive.js", "/images/**",
 
                     // H2 dev console
                     "/h2-console/**"

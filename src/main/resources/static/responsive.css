@@ -37,6 +37,22 @@ video {
    /* sits next to the logo on small screens */
 }
 
+/* Tapping the button leaves the default focus ring behind on mobile.
+   Keep a ring for keyboard users only. */
+.nav-toggle:focus {
+   outline: none;
+}
+
+.nav-toggle:focus:not(:focus-visible) {
+   outline: none;
+   box-shadow: none;
+}
+
+.nav-toggle:focus-visible {
+   outline: 2px solid var(--primary, #4a90e2);
+   outline-offset: 2px;
+}
+
 .nav-toggle span {
    display: block;
    height: 3px;
@@ -78,17 +94,20 @@ video {
    .nav-container {
       max-width: 100%;
       flex-wrap: wrap;
+      justify-content: flex-start;
       padding: 0.75rem 1rem;
       gap: 0.5rem;
    }
 
    .nav-toggle {
       display: flex;
+      margin-left: auto;
    }
 
    .logo {
       order: 1;
-      flex: 1;
+      flex: 0 1 auto;
+      min-width: 0;
       gap: 0.6rem;
    }
 
@@ -324,7 +343,20 @@ video {
 
    .table-wrapper table {
       font-size: 13px;
-      min-width: 560px;
+      min-width: max-content;
+   }
+
+   /* Page styles cap cells at 140px and break words mid-letter; on a phone
+      it is far more readable to keep cells intact and scroll sideways. */
+   .table-wrapper th {
+      white-space: nowrap;
+      max-width: none;
+      word-break: normal;
+   }
+
+   .table-wrapper td {
+      max-width: 220px;
+      word-break: break-word;
    }
 
    th,
@@ -369,7 +401,6 @@ video {
 
    .table-wrapper table {
       font-size: 12px;
-      min-width: 520px;
    }
 
    .profile-btn {

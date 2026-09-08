@@ -90,7 +90,7 @@ body {
    overflow: hidden;
 }
 
-#searchInput {
+.search-container #searchInput {
    flex: 1;
    padding: 1rem;
    border: none;
@@ -99,7 +99,7 @@ body {
    font-size: 1rem;
 }
 
-#searchInput::placeholder {
+.search-container #searchInput::placeholder {
    color: rgba(255, 255, 255, 0.8);
 }
 
@@ -124,7 +124,7 @@ body {
    z-index: 1001;
 }
 
-.modal-content {
+.auth-modal .modal-content {
    background: var(--light);
    color: var(--dark);
    padding: 2rem;
